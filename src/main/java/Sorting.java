@@ -25,27 +25,54 @@ public class Sorting {
     /**
      * Bubble sort.
      *
-     * @param array unsorted input array
+     * @param arr unsorted input array
      * @return the sorted array, or null on failure
      */
-    static int[] bubbleSort(final int[] array) {
-        return null;
+    static int[] bubbleSort(final int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1] > arr[j]) {
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
     }
 
     /**
      * Selection sort.
      *
      * @param array unsorted input array
+     *
      * @return the sorted array, or null on failure
      */
     static int[] selectionSort(final int[] array) {
-        return null;
+        int i, j;
+        for (i = 0; i < array.length; i++) {
+            int min = i;
+            for (j = i + 1; j < array.length; j++) {
+                if (array[j] < array[min]) {
+                    min = j;
+                }
+            }
+
+            int temp = array[min];
+            array[min] = array[i];
+            array[i] = temp;
+        }
+
+        return array;
     }
 
     /**
      * Merge sort.
      *
      * @param array array that needs to be sorted
+     *
      * @return the sorted array, or null on failure
      */
     static int[] mergeSort(final int[] array) {
